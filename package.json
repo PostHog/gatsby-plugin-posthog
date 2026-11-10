@@ -1,6 +1,6 @@
 {
   "name": "gatsby-plugin-posthog",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Official gatsby plugin to setup posthog",
   "main": "index.js",
   "scripts": {
