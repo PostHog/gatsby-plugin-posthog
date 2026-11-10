@@ -41,23 +41,15 @@ module.exports = {
 
 ## Pageview tracking
 
-The plugin sets `capture_pageview: 'history_change'` by default, so posthog-js captures one `$pageview` for the initial load and one for each client-side navigation. You don't need to capture pageviews yourself.
-
-To control pageviews yourself, set `capture_pageview` in `initOptions`:
+The plugin defaults `capture_pageview` to `'history_change'`, so posthog-js captures a `$pageview` on the initial load and on every path change. Override it in `initOptions`:
 
 | `capture_pageview` | Initial load | Client-side navigation |
 |---|---|---|
-| not set (default) or `'history_change'` | posthog-js | posthog-js |
+| `'history_change'` (default) | posthog-js | posthog-js |
 | `true` | posthog-js | plugin |
 | `false` | plugin | plugin |
 
-Each mode captures exactly one `$pageview` per page view. With `capture_pageview: false`, posthog-js also stops capturing `$pageleave`, which Web Analytics uses for bounce rate and time on page. Set `capture_pageleave: true` to keep it.
-
-With `'history_change'`, a `$pageview` fires only when the path changes, so query-string-only or hash-only navigations aren't counted.
-
-### Upgrading from 1.0.x
-
-1.0.x captured a `$pageview` on every route update in addition to posthog-js's own capture, so the initial load was counted twice, and with `capture_pageview: 'history_change'` (or a `defaults` date from 2025-05-24) every pageview was counted twice. After upgrading, expect pageview counts to drop to the real number and bounce rate to rise.
+With `false`, also set `capture_pageleave: true` to keep `$pageleave` events.
 
 ## Questions?
 
