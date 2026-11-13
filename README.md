@@ -1,3 +1,6 @@
+> [!WARNING]
+> This SDK is deprecated. Please use the [PostHog JavaScript SDK](https://posthog.com/docs/libraries/js) instead.
+
 # gatsby-plugin-posthog
 
 ![npm](https://img.shields.io/npm/v/gatsby-plugin-posthog?style=plastic)
