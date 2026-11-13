@@ -42,6 +42,18 @@ module.exports = {
 }
 ```
 
+## Pageview tracking
+
+The plugin defaults `capture_pageview` to `'history_change'`, so posthog-js captures a `$pageview` on the initial load and on every path change. Override it in `initOptions`:
+
+| `capture_pageview` | Initial load | Client-side navigation |
+|---|---|---|
+| `'history_change'` (default) | posthog-js | posthog-js |
+| `true` | posthog-js | plugin |
+| `false` | plugin | plugin |
+
+With `false`, also set `capture_pageleave: true` to keep `$pageleave` events.
+
 ## Questions?
 
 ### [Join our Slack community.](https://join.slack.com/t/posthogusers/shared_invite/enQtOTY0MzU5NjAwMDY3LTc2MWQ0OTZlNjhkODk3ZDI3NDVjMDE1YjgxY2I4ZjI4MzJhZmVmNjJkN2NmMGJmMzc2N2U3Yjc3ZjI5NGFlZDQ)
